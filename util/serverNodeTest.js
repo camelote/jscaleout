@@ -5,13 +5,13 @@ var http = require('http');
 
 /* Statics */
 var bestObject = null;
-var i = 1;
+var i = 0;
 var maxQuery = 30;
 var hasMore = true;
 
 /* Functions */
 function makeStackOverflowCallAndResponse(res, textToFind) {
-   
+    i++;
     http.get("http://api.stackexchange.com/2.1/search/advanced?pagesize=100&page=" + i + "&order=desc&sort=activity&site=stackoverflow&body=" + textToFind, function(response)
 		 {
 		     switch (response.headers['content-encoding']) {
@@ -28,10 +28,10 @@ function makeStackOverflowCallAndResponse(res, textToFind) {
 				 bestObject = myObject;
 			     else
 			     {
-				 bestObject.items.concat(myObject.items);
+				 bestObject.items = bestObject.items.concat(myObject.items);
 			     }
 			     hasMore = myObject.has_more;
-			     console.log('Itération ' + ' hasMore ' + myObject.has_more);
+			     console.log('Itération ' + i + ' hasMore ' + myObject.has_more);
 			     if(hasMore && i < maxQuery)
 				 makeStackOverflowCallAndResponse(res, textToFind);
 			     else
