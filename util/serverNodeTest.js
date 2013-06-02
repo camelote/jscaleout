@@ -36,6 +36,8 @@ function makeStackOverflowCallAndResponse(res, textToFind) {
 				 makeStackOverflowCallAndResponse(res, textToFind);
 			     else
 			     {
+				 i = 0;
+				 hasMore = true;
 				 res.write(JSON.stringify(bestObject, null, 4));
 				 res.end();
 			     }
