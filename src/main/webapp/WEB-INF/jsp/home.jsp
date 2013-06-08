@@ -5,7 +5,7 @@
 		<p>Congratulations, you've set up a Stripes project!</p>
 		<p>You are running Java version ${actionBean.javaVersion} on the
 			${actionBean.osName} operating system.</p>
-		<s:form beanclass="com.github.action.HomeActionBean" method="get" action="">
+		<s:form beanclass="com.github.action.HomeActionBean">
 			<table>
 				<tbody>
 					<tr>

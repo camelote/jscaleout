@@ -12,7 +12,7 @@ import net.sourceforge.stripes.integration.spring.SpringBean;
 import com.github.controler.StackExchangeControler;
 import com.google.code.stackexchange.schema.Question;
 
-@UrlBinding("/Home.htm")
+@UrlBinding("/Home.action")
 public class HomeActionBean extends BaseActionBean {
 	
 	@SpringBean
